@@ -12,7 +12,11 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'static/js/[name]-[hash].js'
+		filename: 'static/js/[name]-[hash].js',
+		publicPath: '/'
+	},
+	devServer: {
+		contentBase: './dist'
 	},
 	module: {
 		rules: [
@@ -21,7 +25,7 @@ module.exports = {
 				loader: 'url-loader',
 				options: {
 					limit: 10000,
-					name: 'img/[name].[hash:7].[ext]'
+					name: 'static/img/[name].[hash:7].[ext]'
 				}
 			},
 			{

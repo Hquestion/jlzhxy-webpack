@@ -1,8 +1,9 @@
 /**
  * Created by 贺小雷 on 2017-09-06.
  */
-var Swiper = require('./lib/swiper-3.4.2.min');
-var echarts = require('./lib/echarts.min');
+import '../../static/css/swiper-3.4.2.min.css';
+const Swiper = require('./lib/swiper-3.4.2.min');
+const echarts = require('./lib/echarts.min');
 
 import ZHJL_UTIL from './util';
 import ZHJL_API from './api';
@@ -141,9 +142,16 @@ function getSubjectGradeList() {
 				gradeList.push(gradeNum)
 			}
 		}
-		getGradeExamLog(list);
+		var collectionList = [];
+		for(var i = 0; i < list.length; i++) {
+			var cts = list[i].COLLECTTTIMES;
+			if(cts && +cts > 0) {
+				collectionList.push(list[i]);
+			}
+		}
+		getGradeExamLog(collectionList);
 		getGradeSampleLog(gradeList);
-		getClassExamOrder(list);
+		getClassExamOrder(collectionList);
 	});
 }
 
@@ -260,6 +268,7 @@ function getGradeSampleLog(gradeList) {
 					value.push(data[i]['COLLECTTTIMES']);
 				}
 				opt.xAxis.data = xAxisData;
+				opt.yAxis.max = max;
 				opt.series[0].data = dataShadow;
 				opt.series[1].data = value;
 				var $el = $node.find('.sample-chart-container');
@@ -417,6 +426,8 @@ function getWxAccessLog() {
 			value.push(data[i]['VNUMS']);
 		}
 		opt.xAxis.data = xAxisData;
+		opt.yAxis.max = max;
+		opt.yAxis.min = 0;
 		opt.series[0].data = dataShadow;
 		opt.series[1].data = value;
 		var $el = $('#wx-access-chart');
