@@ -3,8 +3,7 @@
  * 参数配置
  */
 var echarts = require('./lib/echarts.min');
-console.log(echarts);
-const ZHJL_CONFIG = {
+var ZHJL_CONFIG = {
 	heartbeat: 10 * 60 * 1000,
 	gradeNoMap: {
 		'1': '一年级',

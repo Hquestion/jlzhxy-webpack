@@ -5,7 +5,7 @@
 // var url = 'http://192.168.1.177:2123/Ajax/reportform.ashx';
 var url = 'http://wx.jlms.cn:28669/report/Ajax/reportform.ashx';
 // 	var url = '/report/Ajax/reportform.ashx';
-const ZHJL_API = {
+var ZHJL_API = {
 	getWXAccessLog: function (scb, fcb) {
 		return $.get(url, {
 			storename: 'Proc_getWxVisLog'

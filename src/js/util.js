@@ -2,7 +2,7 @@
  * Created by 贺小雷 on 2017-09-07.
  */
 var DAY_ZH_MAP = ['一', '二', '三', '四', '五', '六', '日'];
-const ZHJL_UTIL = {
+var ZHJL_UTIL = {
 	getZsByNum: function (num) {
 		var yu = Math.ceil(num / 10);
 		return yu * 10;

@@ -2,8 +2,8 @@
  * Created by 贺小雷 on 2017-09-06.
  */
 import '../../static/css/swiper-3.4.2.min.css';
-const Swiper = require('./lib/swiper-3.4.2.min');
-const echarts = require('./lib/echarts.min');
+var Swiper = require('./lib/swiper-3.4.2.min');
+var echarts = require('./lib/echarts.min');
 
 import ZHJL_UTIL from './util';
 import ZHJL_API from './api';
