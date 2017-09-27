@@ -161,9 +161,9 @@ ul {
 .wx-block .text-brief .wx-access .tag, .wx-block .text-brief .wx-bind .tag {
     position: absolute;
     bottom: -4vh;
-    left: 0;
+    left: -10%;
     display: inline-block;
-    width: 100%;
+    width: 120%;
     height: 3vh;
     line-height: 3vh;
 }
@@ -305,6 +305,7 @@ ul {
 }
 #wxbind-count, #wxaccess-count {
     font-size: 0.35rem;
+    display: inline-block;
 }
 .num-splitor {
     display: inline-block;

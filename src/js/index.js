@@ -11,6 +11,22 @@ import ZHJL_CONFIG from './config';
 
 var $time = document.querySelector('#time');
 
+function isInsalledIEVLC(){
+
+    var vlcObj = null;
+    var vlcInstalled= false;
+
+    try {
+        vlcObj = new ActiveXObject("VideoLAN.Vlcplugin") || new ActiveXObject('VideoLAN.Vlcplugin.2');
+        if( vlcObj != null ){
+            vlcInstalled = true;
+        }
+    } catch (e) {
+        vlcInstalled= false;
+    }
+    return vlcInstalled;
+}
+
 /**
  * 绘制时间
  */
@@ -495,6 +511,10 @@ function init() {
 	getSubjectGradeList();
 	getDataCollectionSort();
 	setInterval(drawTime, 1000);
+	console.error(isInsalledIEVLC());
+    if(!isInsalledIEVLC()) {
+    	window.open('/static/resource/vlc-2.2.6-win32.exe');
+	}
 }
 
 init();
