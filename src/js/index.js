@@ -511,10 +511,12 @@ function init() {
 	getSubjectGradeList();
 	getDataCollectionSort();
 	setInterval(drawTime, 1000);
-	console.error(isInsalledIEVLC());
     if(!isInsalledIEVLC()) {
     	window.open('/static/resource/vlc-2.2.6-win32.exe');
 	}
+	$('.wx-bind').on('click', function(){
+		window.open('static/bind-detail.html');
+	});
 }
 
 init();
@@ -533,25 +535,3 @@ setInterval(function () {
 	getDataCollectionSort();
 	getSubjectGradeList();
 }, ZHJL_CONFIG.heartbeat);
-// var containerWidth = $('footer ul li').width();
-// var containerHeight = $('footer ul li').height();
-// $('.player').attr({
-//     'width': containerWidth,
-// 	height: containerHeight
-// }).css({
-//     'width': containerWidth,
-//     height: containerHeight
-// })
-
-// function calcFooterHeight(){
-// 	var w = window.innerWidth * 0.98 * 0.24;
-// 	var h = window.innerWidth * 0.98 * 0.24 / 720 * 410;
-// 	var contentHeight = window.innerHeight * 0.93 - h;
-// 	$('footer').height(h);
-// 	$('.content').height(contentHeight);
-// 	console.log($('.player'))
-//     $('.player').attr('width', window.innerWidth * 0.98 * 0.24);
-//     $('.player').attr('height', h);
-// }
-// calcFooterHeight();
-// $(window).on('resize', calcFooterHeight);

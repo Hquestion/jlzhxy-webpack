@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>教师学生微信绑定详情</title>
+    <script src="./js/zepto.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .main {
+            width: 700px;
+            margin: 20px auto 0;
+        }
+        .clearfix:after {
+            clear: both;
+            content: '\20';
+            display: block;
+        }
+        .left {
+            width: 300px;
+            height: auto;
+            float: left;
+        }
+        .right {
+            width: 300px;
+            height: auto;
+            float: right;
+        }
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            width: 300px;
+            border-color: #ccc;
+        }
+        td, th {
+            padding: 5px 0;
+            text-align: center;
+        }
+        table tbody tr:nth-child(odd) {
+            background: #f2f2f2;
+        }
+        table tbody tr:nth-child(even) {
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="main clearfix">
+        <div class="left">
+            <table border="1">
+                <caption>学生微信绑定详情</caption>
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>年级</th>
+                    <th>班级</th>
+                    <th>是否绑定</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="right">
+            <table border="1">
+                <caption>教师微信绑定详情</caption>
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>是否绑定</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+<script>
+    var ajaxUrl = 'http://wx.jlms.cn:28669/report/Ajax/reportform.ashx';
+    $.get(ajaxUrl,{
+        storename: 'getStudentWxBind'
+    },function(res){
+        var data = JSON.parse(res);
+        var $container = $('.left table tbody');
+        for(var i = 0; i < data.length; i++) {
+            var item = data[i];
+            var $tr = $('<tr><td>' + item.SNAME + '</td><td>'+item.SAGRADE +'</td><td>'+item.SCLASS +'</td><td>'+item.SBIND +'</td>');
+            $tr.appendTo($container);
+        }
+    });
+    $.get(ajaxUrl,{
+        storename: 'getTeacherWxBind'
+    },function(res){
+        var data = JSON.parse(res);
+        var $container = $('.right table tbody');
+        for(var i = 0; i < data.length; i++) {
+            var item = data[i];
+            var $tr = $('<tr><td>' + item.TNAME + '</td><td>'+item.TBIND +'</td>');
+            $tr.appendTo($container);
+        }
+    });
+</script>
+</body>
+</html>
