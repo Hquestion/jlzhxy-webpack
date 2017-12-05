@@ -442,6 +442,7 @@ function getWxAccessLog() {
 			value.push(data[i]['VNUMS']);
 		}
 		opt.xAxis.data = xAxisData;
+        opt.xAxis.axisLabel.interval = 9;
 		opt.yAxis.max = max;
 		opt.yAxis.min = 0;
 		opt.series[0].data = dataShadow;
@@ -475,6 +476,7 @@ function getWebAccessLog() {
 			value.push(data[i]['VNUMS']);
 		}
 		opt.xAxis.data = xAxisData;
+		opt.xAxis.axisLabel.interval = 9;
 		opt.series.data = value;
 		opt.series.smooth = true;
 		opt.series.symbol = 'none';
